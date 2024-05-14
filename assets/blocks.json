@@ -1,0 +1,47 @@
+[
+    {
+        "command": "LVAR_{type}",
+        "friendly-name": "Definir variável local",
+        "types": [
+            {
+                "type": "INT",
+                "description": "Variável inteira"
+            },
+            {
+                "type": "FLOAT",
+                "description": "Variável flutuante"
+            },
+            {
+                "type": "TEXT_LABEL",
+                "description": "Variável string (7 caracteres máx.)"
+            },
+            {
+                "type": "TEXT_LABEL16",
+                "description": "Variável string (15 caracteres máx.)"
+            }
+        ],
+        "args": [
+            {
+                "type": "STRING",
+                "name": "VARIABLE NAME",
+                "description": "Nome da variável"
+            }
+        ]
+    },
+    {
+        "command": "GET_PLAYER_CHAR",
+        "friendly-name": "Pegar o personagem do jogador",
+        "args": [
+            {
+                "type": "INT",
+                "name": "PLAYER",
+                "description": "Identificador do player"
+            },
+            {
+                "type": "STRING",
+                "name": "CHAR HANDLE",
+                "description": "Variável que será armazenado o char do player"
+            }
+        ]
+    }
+]
