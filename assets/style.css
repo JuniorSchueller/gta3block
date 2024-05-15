@@ -165,6 +165,10 @@ body {
     background-color: #c82333;
 }
 
+a {
+    color: white;
+}
+
 .withPadding {
     padding: 20px;
 }
