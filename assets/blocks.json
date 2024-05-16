@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "command": "LVAR_{type}",
     "friendly-name": "Definir variável local",
@@ -163,12 +163,23 @@
     "friendly-name": "Finalizar \"enquanto\""
   },
   {
-    "command": "// {0}",
+    "command": "//",
     "friendly-name": "Comentário",
     "args": [
       {
         "name": "COMMENT",
         "description": "Comentário",
+        "type": "STRING"
+      }
+    ]
+  },
+  {
+    "command": "{0}:",
+    "friendly-name": "Definir escopo",
+    "args": [
+      {
+        "name": "LABEL",
+        "description": "Nome do escopo",
         "type": "STRING"
       }
     ]
