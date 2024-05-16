@@ -99,7 +99,7 @@ function exportCode() {
     items.forEach(item => {
         let blockCode = item.dataset.command;
         const args = item.querySelectorAll('input');
-        if (item.querySelector('select').) {
+        if (item.querySelector('select')) {
             const type = item.querySelector('select').value;
         }
         const argsValues = [];
@@ -133,7 +133,7 @@ function previewCode() {
     items.forEach(item => {
         let blockCode = item.dataset.command;
         const args = item.querySelectorAll('input');
-        if (item.querySelector('select').) {
+        if (item.querySelector('select')) {
             const type = item.querySelector('select').value;
         }
         const argsValues = [];
