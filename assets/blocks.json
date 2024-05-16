@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "command": "LVAR_{type}",
     "friendly-name": "Definir variável local",
@@ -29,7 +29,7 @@
     ]
   },
   {
-    "command": "GET_PLAYER_CHAR",
+    "command": "GET_PLAYER_CHAR {0} {1}",
     "friendly-name": "Pegar o personagem do jogador",
     "args": [
       {
@@ -79,7 +79,7 @@
     ]
   },
   {
-    "command": "WAIT",
+    "command": "WAIT {0}",
     "friendly-name": "Esperar",
     "args": [
       {
@@ -90,7 +90,7 @@
     ]
   },
   {
-    "command": "SET_PLAYER_CONTROL",
+    "command": "SET_PLAYER_CONTROL {0} {1} {2}",
     "friendly-name": "Definir controle do player",
     "args": [
       {
@@ -106,7 +106,7 @@
     ]
   },
   {
-    "command": "GOTO",
+    "command": "GOTO {0}",
     "friendly-name": "Ir para",
     "args": [
       {
@@ -117,7 +117,7 @@
     ]
   },
   {
-    "command": "IF",
+    "command": "IF {0}",
     "friendly-name": "Se",
     "args": [
       {
@@ -148,7 +148,7 @@
     ]
   },
   {
-    "command": "WHILE",
+    "command": "WHILE {0}",
     "friendly-name": "Enquanto",
     "args": [
       {
