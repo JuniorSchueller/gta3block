@@ -163,7 +163,7 @@
     "friendly-name": "Finalizar \"enquanto\""
   },
   {
-    "command": "//",
+    "command": "// {0}",
     "friendly-name": "Comentário",
     "args": [
       {
