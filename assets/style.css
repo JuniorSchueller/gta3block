@@ -165,10 +165,10 @@ body {
     background-color: #c82333;
 }
 
-a {
-    color: black;
-}
-
 .withPadding {
     padding: 20px;
+}
+
+a {
+    color: black;
 }

@@ -1,47 +1,176 @@
 [
-    {
-        "command": "LVAR_{type}",
-        "friendly-name": "Definir variável local",
-        "types": [
-            {
-                "type": "INT",
-                "description": "Variável inteira"
-            },
-            {
-                "type": "FLOAT",
-                "description": "Variável flutuante"
-            },
-            {
-                "type": "TEXT_LABEL",
-                "description": "Variável string (7 caracteres máx.)"
-            },
-            {
-                "type": "TEXT_LABEL16",
-                "description": "Variável string (15 caracteres máx.)"
-            }
-        ],
-        "args": [
-            {
-                "type": "STRING",
-                "name": "VARIABLE NAME",
-                "description": "Nome da variável"
-            }
-        ]
-    },
-    {
-        "command": "GET_PLAYER_CHAR",
-        "friendly-name": "Pegar o personagem do jogador",
-        "args": [
-            {
-                "type": "INT",
-                "name": "PLAYER",
-                "description": "Identificador do player"
-            },
-            {
-                "type": "STRING",
-                "name": "CHAR HANDLE",
-                "description": "Variável que será armazenado o char do player"
-            }
-        ]
-    }
+  {
+    "command": "LVAR_{type}",
+    "friendly-name": "Definir variável local",
+    "types": [
+      {
+        "type": "INT",
+        "description": "Variável inteira"
+      },
+      {
+        "type": "FLOAT",
+        "description": "Variável flutuante"
+      },
+      {
+        "type": "TEXT_LABEL",
+        "description": "Variável string (7 caracteres máx.)"
+      },
+      {
+        "type": "TEXT_LABEL16",
+        "description": "Variável string (15 caracteres máx.)"
+      }
+    ],
+    "args": [
+      {
+        "type": "STRING",
+        "name": "VARIABLE NAME",
+        "description": "Nome da variável"
+      }
+    ]
+  },
+  {
+    "command": "GET_PLAYER_CHAR",
+    "friendly-name": "Pegar o personagem do jogador",
+    "args": [
+      {
+        "type": "INT",
+        "name": "PLAYER",
+        "description": "Identificador do player"
+      },
+      {
+        "type": "STRING",
+        "name": "CHAR HANDLE",
+        "description": "Variável que será armazenado o char do player"
+      }
+    ]
+  },
+  {
+    "command": "SET_LVAR_{type}",
+    "friendly-name": "Definir valor de variável local",
+    "types": [
+      {
+        "type": "INT",
+        "description": "Variável inteira"
+      },
+      {
+        "type": "FLOAT",
+        "description": "Variável flutuante"
+      },
+      {
+        "type": "TEXT_LABEL",
+        "description": "Variável string (7 caracteres máx.)"
+      },
+      {
+        "type": "TEXT_LABEL16",
+        "description": "Variável string (15 caracteres máx.)"
+      }
+    ],
+    "args": [
+      {
+        "type": "STRING",
+        "name": "VARIABLE NAME",
+        "description": "Nome da variável"
+      },
+      {
+        "type": "STRING",
+        "name": "VARIABLE VALUE",
+        "description": "Valor da variável"
+      }
+    ]
+  },
+  {
+    "command": "WAIT",
+    "friendly-name": "Esperar",
+    "args": [
+      {
+        "name": "TIME",
+        "description": "Tempo em milisegundos",
+        "type": "INT"
+      }
+    ]
+  },
+  {
+    "command": "SET_PLAYER_CONTROL",
+    "friendly-name": "Definir controle do player",
+    "args": [
+      {
+        "name": "PLAYER",
+        "description": "Identificador do player",
+        "type": "INT"
+      },
+      {
+        "name": "CONTROL",
+        "description": "Nível de controle (0 para não-controlável e 1 para controlável)",
+        "type": "INT"
+      }
+    ]
+  },
+  {
+    "command": "GOTO",
+    "friendly-name": "Ir para",
+    "args": [
+      {
+        "name": "LABEL",
+        "description": "Label que o código irá ler",
+        "type": "STRING"
+      }
+    ]
+  },
+  {
+    "command": "IF",
+    "friendly-name": "Se",
+    "args": [
+      {
+        "name": "CONDITION",
+        "description": "Condição que será testada",
+        "type": "STRING"
+      }
+    ]
+  },
+  {
+    "command": "ENDIF",
+    "friendly-name": "Finalizar \"se\""
+  },
+  {
+    "command": "PRINT_STRING_NOW",
+    "friendly-name": "Mostrar mensagem agora",
+    "args": [
+      {
+        "name": "STRING",
+        "description": "Mensagem que será mostrada",
+        "type": "STRING"
+      },
+      {
+        "name": "TIME",
+        "description": "Tempo em milisegundos que mensagem irá durar",
+        "type": "INT"
+      }
+    ]
+  },
+  {
+    "command": "WHILE",
+    "friendly-name": "Enquanto",
+    "args": [
+      {
+        "name": "CONDITION",
+        "description": "Condição que será testada",
+        "type": "STRING"
+      }
+    ]
+  },
+  {
+    "command": "ENDWHILE",
+    "friendly-name": "Finalizar \"enquanto\""
+  },
+  {
+    "command": "//",
+    "friendly-name": "Comentário",
+    "args": [
+      {
+        "name": "COMMENT",
+        "description": "Comentário",
+        "type": "STRING"
+      }
+    ]
+  }
 ]

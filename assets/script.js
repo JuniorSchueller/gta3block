@@ -17,6 +17,7 @@ function addItem(block) {
     const item = document.createElement('div');
     item.classList.add('item');
     item.dataset.command = block['command'];
+    item.dataset.argsCount = block.args ? block.args.length : 0; // Conta o número de argumentos
     item.innerHTML = `<strong>${block['friendly-name']}</strong>`;
 
     if (block.types) {
@@ -35,6 +36,7 @@ function addItem(block) {
             const input = document.createElement('input');
             input.type = arg.type === 'INT' ? 'number' : 'text';
             input.placeholder = arg.name;
+            input.title = arg.description; // Adiciona a descrição como título
             item.appendChild(input);
         });
     }
@@ -60,6 +62,20 @@ function addItem(block) {
     codeList.appendChild(item);
 }
 
+// Função para substituir marcadores de posição pelo valor dos argumentos
+function replaceArguments(blockCode, args, selectedType) {
+    let replacedCode = blockCode;
+    args.forEach((arg, index) => {
+        const regex = new RegExp(`\\{${index}\\}`, 'g'); // Escapando as chaves
+        replacedCode = replacedCode.replace(regex, arg);
+    });
+    if (selectedType !== undefined) {
+        replacedCode = replacedCode.replace('{type}', selectedType);
+    }
+    return replacedCode;
+}
+
+
 // Função para mover um bloco para cima
 function moveUp(item) {
     if (item.previousElementSibling) {
@@ -82,20 +98,18 @@ function exportCode() {
 
     items.forEach(item => {
         let blockCode = item.dataset.command;
-        const select = item.querySelector('select');
         const args = item.querySelectorAll('input');
+        const type = item.querySelector('select').value;
         const argsValues = [];
-
-        if (select) {
-            const selectedType = select.value;
-            blockCode = blockCode.replace('{type}', selectedType);
-        }
 
         args.forEach(arg => {
             argsValues.push(arg.value.trim());
         });
 
-        exportedCode += `    ${blockCode} ${argsValues.join(' ')}\n`;
+        // Substitui os marcadores de posição pelos valores dos argumentos
+        blockCode = replaceArguments(blockCode, argsValues, type);
+
+        exportedCode += `    ${blockCode}\n`;
     });
 
     exportedCode += '}\nSCRIPT_END';
@@ -116,20 +130,18 @@ function previewCode() {
 
     items.forEach(item => {
         let blockCode = item.dataset.command;
-        const select = item.querySelector('select');
         const args = item.querySelectorAll('input');
+        const type = item.querySelector('select').value;
         const argsValues = [];
-
-        if (select) {
-            const selectedType = select.value;
-            blockCode = blockCode.replace('{type}', selectedType);
-        }
 
         args.forEach(arg => {
             argsValues.push(arg.value.trim());
         });
 
-        previewContent += `&nbsp;&nbsp;&nbsp;&nbsp;${blockCode} ${argsValues.join(' ')}<br>`;
+        // Substitui os marcadores de posição pelos valores dos argumentos
+        blockCode = replaceArguments(blockCode, argsValues, type);
+
+        previewContent += `&nbsp;&nbsp;&nbsp;&nbsp;${blockCode}<br>`;
     });
 
     previewContent += '}<br>SCRIPT_END';
@@ -139,6 +151,7 @@ function previewCode() {
     previewContentElement.innerHTML = previewContent;
     previewPopup.style.display = 'block';
 }
+
 
 // Fechar pré-visualização do código
 function closePreview() {
