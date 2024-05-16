@@ -132,7 +132,7 @@
     "friendly-name": "Finalizar \"se\""
   },
   {
-    "command": "PRINT_STRING_NOW",
+    "command": "PRINT_STRING_NOW \"{0}\" {1}",
     "friendly-name": "Mostrar mensagem agora",
     "args": [
       {
@@ -163,7 +163,7 @@
     "friendly-name": "Finalizar \"enquanto\""
   },
   {
-    "command": "//",
+    "command": "// {0}",
     "friendly-name": "Comentário",
     "args": [
       {
