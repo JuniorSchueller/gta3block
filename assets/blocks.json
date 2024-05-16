@@ -1,6 +1,6 @@
 [
   {
-    "command": "LVAR_{type}",
+    "command": "LVAR_{type} {0}",
     "friendly-name": "Definir variável local",
     "types": [
       {
